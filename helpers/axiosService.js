@@ -17,9 +17,12 @@ axios.defaults.baseURL = baseUrl;
 
 const AxiosService = async (url) => {
   return new Promise(async (resolve, reject) => {
-    const _url = url == null?url:encodeURI(url);
+    const _url = url == null ? url : encodeURI(url);
     try {
-      const response = await axios.get(_url);
+      const response = await axios.get(_url, {
+        jar: cookiejar,
+        withCredentials: true,
+      });
       if (response.status === 200) {
         return resolve(response);
       }
