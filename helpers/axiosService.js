@@ -23,7 +23,7 @@ const AxiosService = async (url) => {
         jar: cookiejar,
         withCredentials: true,
         headers: {
-          Host: "<calculated when request is sent>",
+          Host: "https://komiku.id",
         },
       });
       if (response.status === 200) {
