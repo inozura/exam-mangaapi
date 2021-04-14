@@ -22,6 +22,9 @@ const AxiosService = async (url) => {
       const response = await axios.get(_url, {
         jar: cookiejar,
         withCredentials: true,
+        headers: {
+          Host: "<calculated when request is sent>",
+        },
       });
       if (response.status === 200) {
         return resolve(response);
